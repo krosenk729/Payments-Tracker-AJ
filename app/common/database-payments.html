@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+
+	<meta name="description" content="Stuff here">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://cloudboost.io/js-sdk/cloudboost.js"></script>
+</head>
+<body>
+	
+
+<script type="text/javascript">
+CB.CloudApp.init('mvkiypiqqpzh','4f3d2d85-bb0a-43da-a283-5c4a26af7adf');
+let currentUser = {};
+let userPayments = [];
+/* Create New User */
+/*
+let user = new CB.CloudUser();
+user.set('username', 'user1');
+user.set('password', 'password1');
+user.set('email', 'email1@sample.com');
+user.signUp({
+  success: (user) => {
+  	console.log('Yayy ', user);
+  },
+  error: (err) => {
+  	console.log('Oh no ', err);
+  }
+});
+*/
+
+
+/* Get User for UID and Find Payments*/
+// let u = {};
+// let query = new CB.CloudQuery('User');
+// query.get('GxB4mDDO', {
+// 	success: (response) => {
+// 		u = response;
+// 		console.log('User get response ', response);
+
+// 		let q = new CB.CloudQuery('payments');
+// 		q.equalTo('Userid', response);
+// 		q.find({
+// 			success: (res) => {
+// 				console.log('Found u data ', res);
+// 			}, 
+// 			error: (err) => {
+// 				console.log('error find ', err);
+// 			}
+// 		});
+// 	}, 
+// 	error: (err) => {
+// 		console.log('error get ', err);
+// 	}
+// });
+
+
+
+/* Log User In  */
+let user = new CB.CloudUser();
+user.set('username', 'user1');
+user.set('password', 'password1');
+user.logIn({
+  success: (user) => {
+  	console.log('Yayy ', user);
+  	currentUser = user;
+	
+	// Add payment for user
+	let newpayment = new CB.CloudObject('payments');
+	newpayment.relate('userid', 'User', currentUser.id); 
+	newpayment.set('store', 'test'); 
+	newpayment.set('desc', 'test'); 
+	newpayment.set('cost', 50); 
+	newpayment.set('freq', 'Yearly'); 
+	newpayment.set('date', '2018-03-10'); 
+	newpayment.set('time', 11); 
+	newpayment.set('ampm', 'AM');
+	newpayment.save({
+		success: (response) => {
+			console.log('yayy new payment ', response.document);
+		}, 
+		error: (err) => {
+			console.log('error new payment ', err);
+		}
+	});
+
+
+	// Find users' payments
+	/*let paymentsearch = new CB.CloudQuery('payments');
+	paymentsearch.equalTo('Userid', currentUser);
+	paymentsearch.find({
+		success: (response) => {
+			console.log('yayy find ', response);
+			userPayments = response;
+		}, 
+		error: (err) => {
+			console.log('error find ', err);
+		}
+	});*/
+
+	// Get user 
+	/*let query = new CB.CloudQuery('User');
+	query.get(user.id, {
+		success: (response) => {
+			console.log('yayy get ', response);
+		}, 
+		error: (err) => {
+			console.log('error get ', err);
+		}
+	});*/
+
+  },
+  error: (err) => {
+  	console.log('Oh no ', err);
+  	console.log('Oh no ', err.response.data.error);
+
+  }
+});
+
+</script>
+</body>
+</html>

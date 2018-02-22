@@ -1,0 +1,21 @@
+[
+	{
+		"store": "Amazon",
+		"desc": "Prime",
+		"cost": 50,
+		"freq": "Yearly",
+		"date": "2018-02-22",
+		"time": 11, 
+		"ampm": "AM",
+		"_id": "test1"
+	},
+	{
+		"store": "TMobile",
+		"cost": 60,
+		"freq": "Monthly",
+		"date": "2018-02-19",
+		"time": 12, 
+		"ampm": "PM",
+		"_id": "test2"
+	}
+]

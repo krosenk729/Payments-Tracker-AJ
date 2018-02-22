@@ -1,0 +1,32 @@
+<div class="payment-row">
+	<div class="payment-row-cell">
+		<div class="field-set">
+			<label class="sr-only">Description of Payment for Store</label>
+			<input ng-model="$ctrl.payment.desc" placeholder="{{$ctrl.payment.store}}'s Membership Service" type="text">
+		</div>
+		<small>Store: {{$ctrl.payment.store}}</small>
+	</div>
+	<div class="payment-row-cell">
+		<div class="field-set">
+			<label class="sr-only">Cost of Recurring Payment</label>
+			<input ng-model="$ctrl.payment.cost" type="number">
+			<select ng-model="$ctrl.payment.freq" ng-options="f for f in $ctrl.freqoptions"></select>
+		</div>
+		<small>Total: {{$ctrl.payment.cost | getCostinTime:$ctrl.payment.date:$ctrl.payment.freq}}</small>
+	</div>
+	<div class="payment-row-cell">
+		<div class="field-set">
+			<label class="sr-only">Next Charge Date and Time</label>
+			<input ng-model="$ctrl.payment.date" type="date"  on-update="$ctrl.update('date', value)">
+			at 
+			<div>
+				<input ng-model="$ctrl.payment.time" type="number" min="1" max="12" on-update="$ctrl.update('time', value)">
+				<select ng-model="$ctrl.payment.ampm" ng-options="a for a in $ctrl.ampmoptions" on-update="$ctrl.update('ampm', value)"></select>
+			</div>
+		</div>
+		<small>Next charge {{$ctrl.payment.date | getCountdown:$ctrl.payment.freq:$ctrl.payment.time:$ctrl.payment.ampm}}</small>
+	</div>
+	<div class="payment-row-cell">
+		<button ng-click="$ctrl.delete()">Remove X</button>
+	</div>
+</tr>

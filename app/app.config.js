@@ -1,18 +1,14 @@
-'use strict';
-
-angular.
-  module('phonecatApp').
-  config(['$locationProvider' ,'$routeProvider',
+angular.module('paymentTrackerApp')
+.config(['$locationProvider', '$routeProvider',
     function config($locationProvider, $routeProvider) {
-      $locationProvider.hashPrefix('!');
+    	$locationProvider.hashPrefix('!');
 
-      $routeProvider.
-        when('/phones', {
-          template: '<phone-list></phone-list>'
-        }).
-        when('/phones/:phoneId', {
-          template: '<phone-detail></phone-detail>'
-        }).
-        otherwise('/phones');
-    }
-  ]);
+    	$routeProvider
+    	.when('/payments/:uid', {
+    		template: '<payment-tracker></payment-tracker>'
+    	})
+    	.when('/loggedout',{
+    		template: '<user-login></user-login>'
+    	})
+    	.otherwise('/loggedout')
+    }]);

@@ -1,0 +1,31 @@
+<div class="payment-row">
+	<div class="payment-row-cell">
+		<div class="field-set">
+			<label class="sr-only">Description of Payment for Store</label>
+			<input ng-model="$ctrl.payment.store" type="text">
+		</div>
+		<small>You can add a description later</small>
+	</div>
+	<div class="payment-row-cell">
+		<div class="field-set">
+			<label class="sr-only">Cost of Recurring Payment</label>
+			<input ng-model="$ctrl.payment.cost" type="number">
+			<select ng-model="$ctrl.payment.freq" ng-options="f for f in $ctrl.freqoptions"></select>
+		</div>
+	</div>
+	<div class="payment-row-cell">
+		<div class="field-set">
+			<label class="sr-only">Next Charge Date and Time</label>
+			<input ng-model="$ctrl.payment.date" type="date">
+			<span> at </span>
+			<div>
+				<input ng-model="$ctrl.payment.time" type="number" min="1" max="12">
+				<select ng-model="$ctrl.payment.ampm" ng-options="a for a in $ctrl.ampmoptions"></select>
+			</div>
+		</div>
+		<small>Enter the next date and time of payment</small>
+	</div>
+	<div class="payment-row-cell">
+		<button ng-click="$ctrl.add()">Add</button>
+	</div>
+</div>

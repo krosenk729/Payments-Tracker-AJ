@@ -1,0 +1,13 @@
+{
+  "freqoptions": [
+    "Hourly",
+    "Daily",
+    "Weekly",
+    "Monthly",
+    "Yearly"
+  ],
+  "ampmoptions": [
+    "AM",
+    "PM"
+  ]
+}

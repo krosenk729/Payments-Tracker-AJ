@@ -1,0 +1,38 @@
+<p>UID: {{$ctrl.uid}}</p>
+<div class="payment-wrapper">
+	<div class="payment-row">
+		<div class="payment-row-cell">
+			Payment Name
+		</div>
+		<div class="payment-row-cell">
+			Recurring Cost
+		</div>
+		<div class="payment-row-cell">
+			Next Date
+		</div>
+		<div class="payment-row-cell">
+			
+		</div>
+	</div>
+	<payment-detail ng-repeat="payment in $ctrl.payments" payment="payment" on-delete="$ctrl.deletePayment(payment)" on-update="$ctrl.updatePayment(payment, col, val)">
+	</payment-detail>
+</div>
+
+<h3>Add a New Payment...</h3>
+<div class="payment-wrapper">
+	<div class="payment-row">
+		<div class="payment-row-cell">
+			Payment Name
+		</div>
+		<div class="payment-row-cell">
+			Recurring Cost
+		</div>
+		<div class="payment-row-cell">
+			Next Date
+		</div>
+		<div class="payment-row-cell">
+			
+		</div>
+	</div>
+	<payment-adder add-payment="$ctrl.addPayment(payment)"></payment-adder>
+</div>

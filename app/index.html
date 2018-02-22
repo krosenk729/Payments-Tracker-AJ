@@ -1,34 +1,37 @@
-<!doctype html>
-<html lang="en" ng-app="phonecatApp">
-  <head>
-    <meta charset="utf-8">
-    <title>Google Phone Gallery</title>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="app.css" />
-    <link rel="stylesheet" href="app.animations.css" />
-
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="app.module.js"></script>
-    <script src="app.config.js"></script>
-    <script src="app.animations.js"></script>
-    <script src="core/core.module.js"></script>
-    <script src="core/checkmark/checkmark.filter.js"></script>
-    <script src="core/phone/phone.module.js"></script>
-    <script src="core/phone/phone.service.js"></script>
-    <script src="phone-list/phone-list.module.js"></script>
-    <script src="phone-list/phone-list.component.js"></script>
-    <script src="phone-detail/phone-detail.module.js"></script>
-    <script src="phone-detail/phone-detail.component.js"></script>
-  </head>
-  <body>
-
-    <div class="view-container">
-      <div ng-view class="view-frame"></div>
-    </div>
-
-  </body>
+<!DOCTYPE html>
+<html ng-app="paymentTrackerApp">
+<head>
+	<title>Payment Tracker</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Stuff here">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="app.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+	<script src="https://cloudboost.io/js-sdk/cloudboost.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.6.7/angular-route.js"></script>
+	<script src="app.module.js"></script>
+	<script src="app.config.js"></script>
+	<script src="app.controller.js"></script>
+	<!-- Login -->
+	<script src="login/login.module.js"></script>
+	<script src="login/login.component.js"></script>
+	<!-- Payment Tracker -->
+	<script src="payment-tracker/payment-tracker.module.js"></script>
+	<script src="payment-tracker/payment-tracker.component.js"></script>
+	<script src="payment-tracker/payment.factory.js"></script>
+	<script src="payment-tracker/payment-tracker.filters.js"></script>
+	<script src="payment-detail/payment-detail.component.js"></script>
+	<script src="payment-adder/payment-adder.component.js"></script>
+</head>
+<body ng-controller="PaymentManager">
+	<div ng-view></div>
+	<!-- <div ng-if="isLoggedIn">
+		<payment-tracker></payment-tracker>
+	</div>
+	<div ng-if="!isLoggedIn">
+		
+	</div> -->
+</body>
 </html>
